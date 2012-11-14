@@ -31,7 +31,7 @@ function AppFrame(fps){
 		},
 		
 		// Called by the user at the start of the application to set each method.
-		methods: function(initialize, update, draw, exit)
+		setFunction: function(initialize, update, draw, exit)
 		{
 			this.initialize = (initialize) ? initialize : this.initialize;
 			this.update = (update) ? update : this.update;
@@ -73,8 +73,7 @@ function AppFrame(fps){
 			publicLib.update();
 			publicLib.draw();
 			
-			//publicLib.debugFps = Math.floor(10000/(endFrame - startFrame))/10;
-			publicLib.debugFps = (endFrame - startFrame);
+			publicLib.debugFps = Math.floor(10000/(endFrame - startFrame))/10;
 			
 			startFrame = Date.now();
 			setTimeout(debugRun, _sleep);
