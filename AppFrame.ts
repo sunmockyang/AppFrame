@@ -1,33 +1,22 @@
 // APPFRAME.TS BY SUNMOCK YANG
 class AppFrame {
     public running: bool;
-
     private fps: number;
     private sleep: number;
+	public initialized: bool = true;
 
-    public initialized: bool = false;
+    public static blank: Function = function () { };
 
     //USER DEFINED RUN METHODS
-    private initialize() { console.log("INITIALIZE METHOD"); } // Runs once at the start of the application
-    private update() { console.log("UPDATE METHOD"); } // Runs every frame before the draw method. Use this function to update your objects
-    private draw() { console.log("DRAW METHOD"); } // Runs every frame after the update method. Use this function to draw your objects
-    private exit() { console.log("EXIT METHOD"); } // Last thing to run before quitting the application.
-
-    //USED TO PRESERVE SCOPE DURING SETTIMEOUT
-    //private runFunc(): Function = (function (that: AppFrame) { that.run(); });
-
-    // FOR DEBUGGING
-    public debugMode: bool;
-    
-    public debugFps: number;
-    public startFrame: number = 0;
-    public endFrame: number = 0;
-    
+    public initialize() { }; // Runs once at the start of the application
+    public update() { }; // Runs every frame before the draw method. Use this function to update your objects
+    public draw() { }; // Runs every frame after the update method. Use this function to draw your objects
+    public exit() { }; // Last thing to run before quitting the application.
 
     public delegate: Function;
-    constructor (frames: number) {
-		//_AppFrame = this;
+    constructor (frames: number, initialized?: bool) {
         this.running = false;
+        this.initialized = (typeof initialized != undefined) ? initialized : this.initialized;
         this.setFps(frames); // Sets the timeout value based on the desired fps.
     }
 
@@ -45,27 +34,13 @@ class AppFrame {
 
 		this.running = true;
 		this.initialize();
-
-		if (this.debugMode === true) {
-		    console.log("DEBUG MODE STARTED");
-
-		    this.delegate = (function(that: AppFrame) {
-		        return function () {
-		            that.debugRun(that);
-		        }
-		    } (this));
-
-		    this.debugRun(this);
-		}
-		else {
-		    this.delegate = (function(that: AppFrame) {
-		        return function () {
-		            that.run(that);
-		        }
-		    } (this));
+		this.delegate = (function(that: AppFrame) {
+		    return function () {
+		        that.run(that);
+		    }
+		} (this));
 		    
-            this.run(this);
-		}
+        this.run(this);
     }
 
     public stop() { this.running = false; }
@@ -91,30 +66,6 @@ class AppFrame {
         else
             this.exit();
     }
-
-    // DEBUG FUNCTIONS
-    private debugRun(that:AppFrame) {
-        if (that.running) {
-            if (that.initialized) {
-                that.endFrame = Date.now();
-                that.update();
-                that.draw();
-
-                that.debugFps = Math.floor(10000/(that.endFrame - that.startFrame))/10;
-
-                that.startFrame = Date.now();
-            }
-
-            setTimeout(that.delegate, that.sleep);
-        }
-        else
-            this.exit();
-    }
-
-    public getDebugFps() {
-        return this.debugFps;
-    }
-
 }
 
 // SUNMOCK YANG

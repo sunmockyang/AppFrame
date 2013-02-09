@@ -1,0 +1,125 @@
+﻿body {
+	background-color: #111;
+    background-image: url(bg_stripe.png);
+}
+canvas{
+	border: 1px solid gray;
+    margin:0 auto;
+    margin-bottom:15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+#image{
+    float:right;
+}
+
+button {
+    background-color:#555;
+    border-color:#333;
+    color:#FFF;
+}
+.codeButton{
+    font-family:Consolas, 'Lucida Console', 'DejaVu Sans Mono', monospace;
+}
+
+#title{
+    margin: 0 auto;
+    width:640px;
+    text-align:center;
+    color:#5FF;
+    font-family:'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', 'DejaVu Sans Condensed', sans-serif;
+    font-size:40px;
+    margin-top:20px;
+    text-shadow: 0 0 10px #099;
+}
+
+.box {
+    margin: 0 auto;
+    width: 640px;
+    padding:20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5) inset;
+    border-radius: 5px;
+	border: 1px solid black;
+    margin-bottom:10px;
+}
+        
+#first{
+    margin-top:10px;
+    background-color: rgba(66,66,66,0.6);
+}
+
+#linkBox {
+    background-color: rgba(88,88,88,0.8);
+}
+
+#second{
+    background-color: rgba(55,55,55,0.7);
+    color:#DDD;
+    font-size:12px;
+    font-family:Verdana, Geneva, 'DejaVu Sans', sans-serif;
+}
+
+#links {
+    height:18px;
+    font-size:14px;
+    font-family:'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', 'DejaVu Sans Condensed', sans-serif;
+}
+
+#author {
+    color:#FF5555;
+}
+#sunmockLink {
+    float:left;
+}
+#homepage {
+    color:#FF8080;
+    text-decoration:none;
+}
+#homepage:hover {
+	text-decoration: underline;
+}
+#viewsource {
+    color:#FFC655;
+}
+#githubLink {
+    float:right;
+}
+#github {
+    color:#FFE0A2;
+    text-decoration:none;
+}
+#github:hover {
+	text-decoration: underline;
+}
+
+#refTitle {
+    font-size: 24px;
+    color:#80FF80;
+}
+#description {
+    text-align:justify;
+    text-justify:inter-word;
+    font-size:12px;
+    color:#80FFFF;
+    font-family:Verdana, Geneva, 'DejaVu Sans', sans-serif;
+}
+ul {
+    margin-left:10px;
+    margin-right:10px;
+}
+li {
+    margin-bottom:5px;
+}
+.listTitle {
+    margin-left:20px;
+    margin-bottom:-10px;
+    margin-top:10px;
+    color:#AAFF55;
+    font-size:16px;
+    font-family:'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', 'DejaVu Sans Condensed', sans-serif;
+}
+.code {
+    font-size:14px;
+    color:#55FF55;
+    font-family:Consolas, 'Lucida Console', 'DejaVu Sans Mono', monospace;
+}

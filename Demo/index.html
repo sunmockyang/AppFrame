@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>AppFrame.js Demo</title>
+	<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+</head>
+
+<body onload="run();">
+    <div id="wrapper">
+        <div id="title">AppFrame.js Demo</div>
+        <div id="first" class="box">
+            <canvas id="draw" width="640px" height="360px">Sorry, you need to run this on a browser that supports canvas..</canvas>
+            <br />
+            <button class="codeButton" onclick="appFrame.start();">appFrame.start();</button>
+            <button class="codeButton" onclick="appFrame.stop();">appFrame.stop();</button>
+    
+            <span id="image">
+            <input type="url" name="urlenter" id="urlbar" value="Image URL" onclick="if (this.value == 'Image URL') this.value = '';"/>
+            <button onclick="appFrame.addImage(document.getElementById('urlbar').value)">Add an image!</button>
+            </span>
+        </div>
+        <div id="linkBox" class="box">
+            <span id="description">
+                AppFrame is a lightweight and extendable framework for iterative applications.
+                Based on the runtime structure of the XNA framework.
+            </span>
+            <hr />
+            <div id="links">
+                <div id="sunmockLink">
+                    <span id="author">AppFrame.js by </span>
+                    <a target="_blank" href="http://sunmock.com" id="homepage">Sunmock Yang</a>
+                </div>
+
+                <div id="githubLink">
+                    <span id="viewsource">View source on </span>
+                    <a target="_blank" href="https://github.com/sunmockyang/AppFrame" id="github">GitHub</a>
+                </div>
+            </div>
+        </div>
+        <div id="second" class="box">
+                <div id="refTitle">AppFrame Reference</div>
+                <div class="listTitle">Constructor</div>
+                <ul>
+                    <li><span class="code">AppFrame(fps:number, initialized?:boolean)</span>
+                    <br />
+                    First argument will set the rate at which the main loop will run in frames per second.
+                    <br />    
+                    Second argument is optional and sets whether the initialized variable is set to true or false. Default set to false.
+                    </li>
+                </ul>
+                <div class="listTitle">Commands</div>
+                <ul>
+                    <li><span class="code">start()</span><br />
+                    Calls the initialize function and starts the AppFrame runtime functions once initialized has been set to true.</li>
+                    <li><span class="code">stop()</span><br />
+                    Stops the AppFrame loop and calls the exit function</li>
+                </ul>
+                <div class="listTitle">Runtime</div>
+                <ul>
+                    <li><span class="code">initialize()</span><br />
+                    Runs once when start() is called. Mainly used for initialization and loading of application.</li>
+                    <li><span class="code">update()</span><br />
+                    Part of the main loop. Runs each iteration before the draw() function. Mainly used to update instances of the application.</li>
+                    <li><span class="code">draw()</span><br />
+                    Part of the main loop. Runs after update(). Mainly used for all visual render/draw functions.</li>
+                    <li><span class="code">exit()</span><br />
+                    Runs once when stop() is called. This is the last function to run before the application stops running.</li>
+                </ul>
+                <div class="listTitle">Variables</div>
+                <ul>
+                    <li><span class="code">initialized</span><br />
+                    Type boolean. If this is set to false, the main loop will not run until it has been set to true.</li>
+                </ul>
+        </div>
+    </div>
+
+    <script>
+        var canvas = document.getElementById("draw");
+        var appFrame, url = "http://sunmock.com/projects/pxlkraft/images/main/SorCon.png";
+
+        function run(){
+            appFrame = new ExampleApplication(30, url, canvas);
+        }
+    </script>
+    <script src="../AppFrame.js" type="text/javascript"></script>
+    <script src="AppFrameDemo.js" type="text/javascript"></script>
+</body>
+</html>
