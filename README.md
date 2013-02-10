@@ -4,6 +4,8 @@ AppFrame is a web application framework designed for running
 iteration based applications. AppFrame has four main functions that
 the application can be segmented into. initialize, update, draw, exit.
 
+Demo/Reference: http://sunmock.com/projects/AppFrame/
+
 ## Instructions
 * TypeScript specific instructions can be found at the bottom.
 
